@@ -9,8 +9,11 @@ use wasm_bindgen::prelude::*;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-extern {
-    fn alert(s: &str);
+#[repr(u8)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cell {
+    Dead = 0,
+    Alive = 1,
 }
 
 #[wasm_bindgen]
