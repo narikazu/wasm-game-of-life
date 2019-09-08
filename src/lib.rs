@@ -24,6 +24,7 @@ pub struct Universe {
     cells: Vec<Cell>,
 }
 
+#[wasm_bindgen]
 impl Universe {
     pub fn new() -> Universe {
         let width = 64;
@@ -71,7 +72,7 @@ impl Universe {
         count
     }
 
-    fn tick(&mut self) {
+    pub fn tick(&mut self) {
         let mut next = self.cells.clone();
 
         for row in 0..self.height {
